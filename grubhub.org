@@ -1,0 +1,9 @@
+#+title: Grubhub Tricks
+
+Grubhub’s receipts appear to be printed HTML documents. For some reason, the name field on these receipts does not appear to be sanitized on the server side; certain characters are prohibited on the mobile client (like <, >, =, etc.) but that protection simply does not exist on the kiosk clients. Therefore, html code sent in the name field of an order from a kiosk appears to be evaluated on the printed receipts.
+
+This has allowed for some shenanigans. Inputting <i>text</i> results in /text/; this also applies for tags like <s> (for strikethrough), <small>, and even <button>. Additionally, the line break tag <br> allows for multiple blank lines in the name field, and the printed receipt responds to these lines dynamically, further reinforcing the use of HTML.
+
+There may still be some sanitization occurring. For some reason, attributes appear to be nonfunctional, and scripts/stylesheets have yet to be tested. A further constraint exists in the fact that the kiosk limits the name to a measly 35 characters.
+
+Even with these restrictions, it should still be possible to perform all kinds of nonsense, including potentially interacting with other parts of the receipt beyond just where the name is supposed to go.
